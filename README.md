@@ -17,8 +17,8 @@ Primero, necesitas clonar el repositorio del proyecto en tu máquina local. Esto
 ### Clona el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repo.git
-cd tu-repo
+git clone https://github.com/cromewar/your-first-ERC20.git
+cd your-first-ERC20
 ```
 
 
