@@ -1,66 +1,58 @@
-## Foundry
+# Tu primer ERC20 Token desde Cero
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+¿Quieres aprender a desplegar tu propio token ERC20 utilizando Foundry? Estás en el lugar correcto. En este tutorial, te guiaré a través de todo el proceso, desde la instalación hasta el despliegue del contrato, de manera sencilla y directa. ¡Vamos a ello!
 
-Foundry consists of:
+¿Qué Necesitas Antes de Empezar?
+Antes de ponernos manos a la obra, asegúrate de tener Foundry instalado en tu sistema. Si aún no lo has hecho, no te preocupes, es fácil:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
 ```
 
-### Test
 
-```shell
-$ forge test
+## Instalación del Proyecto
+Primero, necesitas clonar el repositorio del proyecto en tu máquina local. Esto es lo que tienes que hacer:
+
+### Clona el repositorio:
+
+```bash
+git clone https://github.com/tu-usuario/tu-repo.git
+cd tu-repo
 ```
 
-### Format
 
-```shell
-$ forge fmt
+Instala las dependencias necesarias: Como este es un proyecto de contratos inteligentes, vamos a necesitar OpenZeppelin, entre otras cosas:
+
+```bash
+forge install OpenZeppelin/openzeppelin-c ontracts --no-commit
 ```
 
-### Gas Snapshots
+### Compilando el Contrato ERC20
+Ahora que todo está configurado, es momento de compilar los contratos. Esto asegurará que todo esté en orden antes de proceder al despliegue. Simplemente ejecuta:
 
-```shell
-$ forge snapshot
+```bash
+forge build
+```
+### Desplegando el Contrato en la Red
+
+¡Vamos a lo más emocionante! Para desplegar el contrato, debes crear un script de despliegue en la carpeta script/. Una vez listo, puedes ejecutarlo con el siguiente comando:
+
+```bash
+forge script script/DeployNuestroToken.s.sol --broadcast --rpc-url URL_DE_TU_RED
 ```
 
-### Anvil
+Nota: Asegúrate de reemplazar URL_DE_TU_RED con la URL de la red en la que deseas desplegar tu token (por ejemplo, la red de pruebas Sepolia o la red principal de Ethereum).
 
-```shell
-$ anvil
+### Ejecutando Pruebas
+
+¡Genial! Ya casi terminamos. Antes de finalizar, es buena idea asegurarte de que todo funciona correctamente ejecutando las pruebas que has definido. Usa:
+
+```bash
+forge test
 ```
 
-### Deploy
+Esto ejecutará todas las pruebas que hayas configurado en la carpeta test/ y te dará tranquilidad de que todo funciona como debería.
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+### Licencia
+Este proyecto está bajo la Licencia MIT, lo que significa que puedes usarlo libremente. Para más detalles, revisa el archivo LICENSE en el repositorio.
